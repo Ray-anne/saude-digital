@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Agendamento de Consulta</title>
+
+<style>
+
+body{
+
+    margin:0;
+
+    padding:0;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:linear-gradient(
+    to right,
+    #1d5fa2,
+    #28d7f7);
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.container{
+
+    width:450px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0px 8px 20px rgba(0,0,0,0.2);
+}
+
+h1{
+
+    text-align:center;
+
+    color:#1d5fa2;
+
+    margin-bottom:30px;
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:18px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+}
+
+button{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#1d5fa2;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    background:#174c82;
+}
+
+.voltar{
+
+    background:#555;
+
+    margin-top:10px;
+}
+
+.voltar:hover{
+
+    background:#333;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Agendamento de Consulta</h1>
+
+<form action="CadastroConsultaServlet"
+method="post">
+
+<!-- PACIENTE -->
+
+<input
+type="text"
+name="nomePaciente"
+placeholder="Nome do paciente"
+required>
+
+<!-- ESPECIALIDADE -->
+
+<select name="especialidade" required>
+
+<option value="">
+Selecione a especialidade
+</option>
+
+<option value="Clínico Geral">
+Clínico Geral
+</option>
+
+<option value="Cardiologia">
+Cardiologia
+</option>
+
+<option value="Pediatria">
+Pediatria
+</option>
+
+<option value="Dermatologia">
+Dermatologia
+</option>
+
+<option value="Ortopedia">
+Ortopedia
+</option>
+
+</select>
+
+<!-- DATA -->
+
+<input
+type="date"
+id="dataConsulta"
+name="dataConsulta"
+required>
+
+<!-- HORÁRIO -->
+
+<select
+id="horario"
+name="horario"
+required>
+
+<option value="">
+Selecione um horário
+</option>
+
+<option value="08:00">08:00</option>
+<option value="09:00">09:00</option>
+<option value="10:00">10:00</option>
+<option value="11:00">11:00</option>
+<option value="12:00">12:00</option>
+<option value="13:00">13:00</option>
+<option value="14:00">14:00</option>
+<option value="15:00">15:00</option>
+<option value="16:00">16:00</option>
+<option value="17:00">17:00</option>
+<option value="18:00">18:00</option>
+<option value="19:00">19:00</option>
+<option value="20:00">20:00</option>
+<option value="21:00">21:00</option>
+<option value="22:00">22:00</option>
+
+</select>
+
+<!-- STATUS -->
+
+<select name="statusConsulta" required>
+
+<option value="Confirmada">
+Confirmada
+</option>
+
+<option value="Reagendada">
+Reagendada
+</option>
+
+<option value="Cancelada">
+Cancelada
+</option>
+
+</select>
+
+<button type="submit">
+
+Agendar Consulta
+
+</button>
+
+</form>
+
+<a href="home.html">
+
+<button class="voltar">
+
+Voltar ao Menu
+
+</button>
+
+</a>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+document.querySelector("form")
+
+.addEventListener("submit",
+function(event){
+
+    let dataConsulta =
+    document
+    .getElementById("dataConsulta")
+    .value;
+
+    let horarioConsulta =
+    document
+    .getElementById("horario")
+    .value;
+
+    let agora =
+    new Date();
+
+    let hoje =
+    agora.toISOString()
+    .split("T")[0];
+
+    /* DATA RETROATIVA */
+
+    if(dataConsulta < hoje){
+
+        alert(
+        "Não é permitido agendar consultas em datas retroativas!"
+        );
+
+        event.preventDefault();
+
+        return;
+    }
+
+    /* HORÁRIO RETROATIVO */
+
+    if(dataConsulta == hoje){
+
+        let partesAtual =
+
+        agora
+        .toTimeString()
+        .split(":");
+
+        let horaAtual =
+        parseInt(partesAtual[0]);
+
+        let minutoAtual =
+        parseInt(partesAtual[1]);
+
+        let partesConsulta =
+        horarioConsulta.split(":");
+
+        let horaConsulta =
+        parseInt(partesConsulta[0]);
+
+        let minutoConsulta =
+        parseInt(partesConsulta[1]);
+
+        if(
+
+        horaConsulta < horaAtual ||
+
+        (
+
+        horaConsulta == horaAtual
+
+        &&
+
+        minutoConsulta <= minutoAtual
+
+        )
+
+        ){
+
+            alert(
+            "Não é permitido agendar consultas em horários passados!"
+            );
+
+            event.preventDefault();
+
+            return;
+        }
+    }
+});
+
+</script>
+
+</body>
+
+</html>

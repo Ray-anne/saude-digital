@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sistema Saúde Digital</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+body{
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HERO PRINCIPAL */
+
+.hero{
+
+    width: 100%;
+    height: 100vh;
+
+    background-image:
+    linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.65)
+    ),
+    url("./imagem/medico.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero-content{
+
+    width: 85%;
+
+    animation: fadeUp 1.5s ease;
+}
+
+.hero h1{
+
+    color: white;
+
+    font-size: 70px;
+
+    margin-bottom: 25px;
+}
+
+.hero p{
+
+    color: white;
+
+    font-size: 24px;
+
+    line-height: 1.9;
+
+    margin-bottom: 40px;
+}
+
+.hero button{
+
+    width: 280px;
+
+    margin: auto;
+
+    font-size: 18px;
+}
+
+/* SEÇÃO SOBRE */
+
+.about-section{
+
+    width: 90%;
+
+    margin: auto;
+
+    padding-top: 80px;
+    padding-bottom: 70px;
+}
+
+.section-title{
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 45px;
+
+    margin-bottom: 50px;
+}
+
+.about-box{
+
+    background-color: white;
+
+    padding: 50px;
+
+    border-radius: 25px;
+
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+    animation: fadeUp 1.2s ease;
+}
+
+.about-box h2{
+
+    color: #1d5fa2;
+
+    margin-bottom: 25px;
+
+    font-size: 38px;
+}
+
+.about-box p{
+
+    color: #555;
+
+    line-height: 2;
+
+    font-size: 19px;
+}
+
+/* CARDS */
+
+.cards{
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 30px;
+}
+
+.card{
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+
+    text-align: center;
+
+    transition: 0.5s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before{
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 6px;
+
+    background: linear-gradient(
+        90deg,
+        #1d5fa2,
+        #00c6c6
+    );
+
+    top: 0;
+    left: 0;
+}
+
+.card:hover{
+
+    transform: translateY(-12px) scale(1.03);
+
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.35);
+}
+
+.card h3{
+
+    color: #1d5fa2;
+
+    margin-bottom: 20px;
+
+    font-size: 30px;
+}
+
+.card p{
+
+    color: #555;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+}
+
+/* DIFERENCIAIS */
+
+.features{
+
+    width: 90%;
+
+    margin: auto;
+
+    padding-bottom: 80px;
+}
+
+.feature-grid{
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+
+    gap: 30px;
+}
+
+.feature{
+
+    background-color: rgba(255,255,255,0.97);
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    transition: 0.4s;
+
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
+}
+
+.feature:hover{
+
+    transform: scale(1.04);
+
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.25);
+}
+
+.feature h3{
+
+    color: #1d5fa2;
+
+    margin-bottom: 18px;
+
+    font-size: 28px;
+}
+
+.feature p{
+
+    color: #555;
+
+    line-height: 1.9;
+
+    font-size: 17px;
+}
+
+/* RODAPÉ */
+
+footer{
+
+    text-align: center;
+
+    color: white;
+
+    padding: 35px;
+
+    background-color: rgba(0,0,0,0.25);
+
+    font-size: 17px;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Sistema Saúde Digital</h1>
+
+<p>
+
+Gerencie consultas, pacientes e usuários
+de forma moderna, eficiente e organizada.
+Uma solução desenvolvida para facilitar
+o controle e gerenciamento de informações
+na área da saúde.
+
+</p>
+
+<a href="login.html">
+
+<button>
+
+Entrar no Sistema
+
+</button>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- SOBRE O SISTEMA -->
+
+<section class="about-section">
+
+<h2 class="section-title">
+
+Conheça o Sistema
+
+</h2>
+
+<div class="about-box">
+
+<h2>Transformando a Gestão da Saúde</h2>
+
+<p>
+
+O Sistema Saúde Digital foi desenvolvido com o objetivo
+de proporcionar mais praticidade, organização e eficiência
+na gestão de consultas, pacientes e usuários.
+A plataforma oferece um ambiente moderno e intuitivo,
+facilitando o gerenciamento das informações e otimizando
+os processos administrativos da área da saúde.
+
+</p>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Agendamento Inteligente</h3>
+
+<p>
+
+Realize agendamentos médicos de forma rápida,
+prática e organizada, melhorando o fluxo
+de atendimento e gerenciamento das consultas.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Gestão de Pacientes</h3>
+
+<p>
+
+Cadastre, visualize e gerencie pacientes
+com facilidade em um ambiente moderno
+e intuitivo.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Controle de Usuários</h3>
+
+<p>
+
+Gerencie acessos e usuários do sistema
+com segurança e praticidade.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DIFERENCIAIS -->
+
+<section class="features">
+
+<h2 class="section-title">
+
+Diferenciais do Sistema
+
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+
+<h3>Interface Moderna</h3>
+
+<p>
+
+Sistema desenvolvido com design moderno,
+responsivo e agradável para proporcionar
+uma melhor experiência ao usuário.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Organização Inteligente</h3>
+
+<p>
+
+Centralize informações importantes da área
+da saúde em um único ambiente digital,
+melhorando a organização dos processos.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<h3>Eficiência e Controle</h3>
+
+<p>
+
+Controle consultas, pacientes e usuários
+de maneira eficiente e organizada,
+facilitando o gerenciamento das informações.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Sistema Saúde Digital © 2026
+
+</footer>
+
+</body>
+</html>

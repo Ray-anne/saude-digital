@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Cadastro</title>
+</head>
+
+<body>
+
+<form action="CadastroServlet" method="post">
+
+<div class="container">
+
+<h2>Cadastro</h2>
+
+<input type="text" placeholder="Nome">
+
+<input type="email" name="email" placeholder="Email">
+
+<input type="password" name="senha" placeholder="Senha">
+
+<button type="submit">Cadastrar</button>
+
+<br><br>
+
+<a href="login.html">
+<button>Voltar para Login</button>
+</a>
+
+</div>
+
+</form>
+
+</body>
+
+<script>
+
+function cadastrar(){
+
+    try {
+
+        var nome = document.getElementById("nome").value;
+        var email = document.getElementById("email").value;
+        var senha = document.getElementById("senha").value;
+
+        if(nome === "" || email === "" || senha === ""){
+            alert("Preencha todos os campos!");
+            return;
+        }
+
+        // salva
+        localStorage.setItem("usuario", nome);
+        localStorage.setItem("senha", senha);
+
+        alert("Cadastro realizado com sucesso!");
+
+        window.location.href = "login.html";
+
+    } catch (erro) {
+        alert("Erro detectado: " + erro.message);
+    }
+
+}
+
+</script>
+
+</body>
+</html>

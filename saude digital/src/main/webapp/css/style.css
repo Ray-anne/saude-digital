@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #1d5fa2, #00c6c6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: rgba(255,255,255,0.95);
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+h2{
+    margin-bottom: 25px;
+    color: #222;
+    font-size: 40px;
+}
+
+input,
+select{
+    width: 100%;
+    display: block;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus{
+    outline: none;
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79,172,254,0.5);
+}
+
+button{
+    width: 100%;
+    display: block;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1d5fa2;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+button:hover{
+    background-color: #0084ff;
+    transform: scale(1.02);
+}
+
+a{
+    text-decoration: none;
+}
+
+table{
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+th{
+    background-color: #1d5fa2;
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+}
+
+td{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:hover{
+    background-color: #f5f5f5;
+}
+
+.logo{
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.table-container{
+    width: 95%;
+    margin: auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.3);
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.actions button{
+    width: auto;
+    padding: 10px 15px;
+}
+
+.dashboard{
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.dashboard h1{
+    color: white;
+    margin-bottom: 40px;
+    font-size: 40px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card{
+    background-color: white;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.card h2{
+    color: #1d5fa2;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.card button{
+    width: 100%;
+}
+
+@media(max-width: 500px){
+
+    .container{
+        width: 90%;
+    }
+
+    table{
+        font-size: 12px;
+    }
+}
+.banner{
+
+    width: 100%;
+    height: 250px;
+
+    background-image: url("../imagem/medico.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h1{
+
+    background-color: rgba(0,0,0,0.5);
+
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 10px;
+
+    font-size: 40px;
+}
